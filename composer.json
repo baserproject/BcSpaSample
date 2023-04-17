@@ -5,9 +5,6 @@
     "type": "cakephp-plugin",
     "license": "MIT",
     "vendor-dir": "../../vendor",
-    "require": {
-        "baserproject/baser-core": "^4.3"
-    },
     "autoload": {
         "psr-4": {
             "BcSpaSample\\": "src/"

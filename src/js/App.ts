@@ -100,7 +100,7 @@ export default Vue.extend({
             }).then((response) => {
                 const user: User = response.data.user;
                 this.loginId = user.id
-                this.loginName = user.name
+                this.loginName = user.name? user.name : user.email
             });
         },
 
