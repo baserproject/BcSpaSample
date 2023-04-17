@@ -20,7 +20,7 @@ https://localhost/bc_spa_sample/admin.html
 
 　
 ## ソースを確認する
-ソースファイルは、 `/plugins/BcSpaSample/src/` に配置しています。
+ソースファイルは、 `/src/` に配置しています。
 
 　
 ## コンパイル
