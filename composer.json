@@ -1,6 +1,6 @@
 {
-    "name": "baserproject/bc-blog",
-    "description": "BcBlog plugin for baserCMS",
+    "name": "baserproject/bc-spa-sample",
+    "description": "BcSpaSample plugin for baserCMS",
     "homepage": "https://basercms.net",
     "type": "cakephp-plugin",
     "license": "MIT",
