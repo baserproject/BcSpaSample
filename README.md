@@ -1,11 +1,6 @@
 # BcSpaSample plugin for baserCMS
 
-ucmitz の REST API と vue.js を利用する場合のサンプルアプリケーションです。
-
-管理画面より、BcSpaSample プラグインをインストールし、次のURLにアクセスすることで、管理者ログインとユーザー管理を確認することができます。
-
-https://localhost/bc_spa_sample/admin.html
-
+baserCMS の REST API と vue.js を利用する場合のサンプルアプリケーションです。
 　
 ## Installation
 
@@ -17,17 +12,19 @@ The recommended way to install composer packages is:
 composer require baserproject/BcSpaSample
 ```
 
+　
+## 利用方法
+管理画面より、BcSpaSample プラグインをインストールし、次のURLにアクセスすることで、管理者ログインとユーザー管理を確認することができます。
 
+https://localhost/bc_spa_sample/admin.html
 
 　
 ## ソースを確認する
-
 ソースファイルは、 `/plugins/BcSpaSample/src/` に配置しています。
 
 　
 ## コンパイル
-
-webpack を使ってコンパイルします。 `/plugins/BcSpaSample/` に移動し次のコマンドを実行してください。
+webpack を使ってコンパイルします。 プラグインのディレクトリに移動し次のコマンドを実行してください。
 
 ```javascript
 npm install
@@ -36,10 +33,8 @@ npm run dev
 
 　
 ## REST API
-
 ログイン以外のリクエストヘッダーには、 `Authorization` をキーとしてJWT形式のアクセストークンが必要となります。
 
-　
 ### ログイン
 
 #### メソッド
@@ -130,52 +125,7 @@ await axios.get('/baser/api/admin/baser-core/users/refresh_token.json', {
 　
 ### ユーザー一覧取得
 
-#### メソッド
-
-```javascript
-GET
-```
-
-#### URL
-
-```javascript
-/baser/api/admin/baser-core/users/index.json
-```
-
-#### リクエストパラメーター
-
-| パラメーター名 | 内容                         | 
-| -------------- | ---------------------------- | 
-| num            | 取得件数                     | 
-| user_group_id  | ユーザーグループID           | 
-| name           | アカウント名（あいまい検索） | 
-
-
-#### レスポンス
-
-```javascript
-{
-	users: [
-        {
-            "id": 1,
-            "name": "admin",
-            "real_name_1": "admin",
-            "real_name_2": "admin",
-            "email": "test@example.com",
-            "nickname": "ニックネーム",
-            "user_groups": [
-                "id": 1,
-                "name": "admins",
-                "title": "システム管理者",
-                "auth_prefix": "admin",
-                "default_favorites": "YTo3OntpOjA7YToyOntzOjQ6Im5hbWUiO3M6MjE6IuOCs+ODs+ODhuODs+ODhOeuoeeQhiI7czozOiJ1cmwiO3M6MjE6Ii9hZG1pbi9jb250ZW50cy9pbmRleCI7fWk6MTthOjI6e3M6NDoibmFtZSI7czoxODoi5paw552A5oOF5aCx566h55CGIjtzOjM6InVybCI7czozMDoiL2FkbWluL2Jsb2cvYmxvZ19wb3N0cy9pbmRleC8xIjt9aToyO2E6Mjp7czo0OiJuYW1lIjtzOjMwOiLmlrDnnYDmg4XloLHjgrPjg6Hjg7Pjg4jkuIDopqciO3M6MzoidXJsIjtzOjMzOiIvYWRtaW4vYmxvZy9ibG9nX2NvbW1lbnRzL2luZGV4LzEiO31pOjM7YToyOntzOjQ6Im5hbWUiO3M6MjQ6IuOBiuWVj+OBhOWQiOOCj+OBm+ioreWumiI7czozOiJ1cmwiO3M6MzE6Ii9hZG1pbi9tYWlsL21haWxfZmllbGRzL2luZGV4LzEiO31pOjQ7YToyOntzOjQ6Im5hbWUiO3M6MjQ6IuOBiuWVj+OBhOWQiOOCj+OBm+S4gOimpyI7czozOiJ1cmwiO3M6MzM6Ii9hZG1pbi9tYWlsL21haWxfbWVzc2FnZXMvaW5kZXgvMSI7fWk6NTthOjI6e3M6NDoibmFtZSI7czoyNDoi44Ki44OD44OX44Ot44O844OJ566h55CGIjtzOjM6InVybCI7czozMToiL2FkbWluL3VwbG9hZGVyL3VwbG9hZGVyX2ZpbGVzLyI7fWk6NjthOjI6e3M6NDoibmFtZSI7czoxNToi44Kv44Os44K444OD44OIIjtzOjM6InVybCI7czoyMDoiamF2YXNjcmlwdDpjcmVkaXQoKTsiO319",
-                "use_move_contents": 1
-            ]    
-        },
-        ...
-    ]
-} 
-```
+[baser Admin Api ユーザー一覧取得](https://baserproject.github.io/5/web_api/baser_admin_api/baser-core/users/index) を参照ください。
 
 #### コード例
 ```javascript
@@ -191,32 +141,42 @@ axios.get('/baser/api/admin/baser-core/users/index.json', {
 }.bind(this))
 ```
 
-### BcSpaSampleでtypescriptを利用する
+### その他のAPI
+次のドキュメントをご覧ください。
 
-##### 変更点
+- [Web APIガイド](https://baserproject.github.io/5/web_api/)
+- [baser API](https://baserproject.github.io/5/web_api/baser_api/)
+- [baser Admin API](https://baserproject.github.io/5/web_api/baser_admin_api/)
 
-単一のvueファイルをtemplate(vueファイル)とscript(tsファイル)に分離
+　
+## BcSpaSample で TypeScript を利用する
 
-例)Login.vue→scriptの箇所をLogin.tsに移行
+### 変更点
+
+単一の vue ファイルを template（vueファイル）と script（tsファイル）に分離
+
+例) Login.vue → script の箇所を Login.ts に移行
+
 ```html
 <script lang="ts" src="./Login.ts"></script>
 ```
-tsファイル内でVue.extendを使用することで、Vueコンポーネントの記述に近い書き方でTypeScriptを書くことができます。
-```vue
+
+tsファイル内でVue.extendを使用することで、Vueコンポーネントの記述に近い書き方で TypeScript を書くことができます。
+
+```javascript
 // *.vue
 export default {
-
     data: function () {...}
 ```
 ↓
-```vue
+```javascript
 // *.ts
 export default Vue.extend({
     data: () => {
 ```
-##### 型の定義
+### 型の定義
 
-typeまたはinterfaceを使って、型を定義できます。
+type または interface を使って、型を定義できます。
 代入される変数や返り値が型とそぐわない場合TypeErrorが返ります。
 
 ```ts
@@ -234,7 +194,7 @@ data: (): DataType => {
 this.message = 100; // (property) message?: string | undefined
 ```
 
-##### 型の再利用
+### 型の再利用
 
 main.tsにてUserタイプを定義してるので、importして再利用できます。
 
@@ -257,10 +217,5 @@ type DataType = {
 };
 ```
 
-
-
-### その他のAPI
-
-その他のAPIは `/src/` ディレクトリ内のサンプルコードを参考にしてください。
 
 
