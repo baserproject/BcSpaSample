@@ -20,17 +20,17 @@
                         </div>
                     </div>
 
-                    <div id="UserMenu" class="bca-toolbar__users" v-show="loginId">
+                    <div id="UserMenu" class="bca-toolbar__users" v-if="loginId" v-show="loginId">
                         <ul class="clearfix">
                             <li>
-                                <a href="javascript:void(0)" class="title">
+                                <a href="javascript:void(0)" class="title" v-if="loginName">
                                     {{ loginName }}
                                     <img src="/bc_admin_third/img/admin/btn_dropdown.png" width="8" height="11"
                                          class="bc-btn" alt=""/>
                                 </a>
                                 <ul>
                                     <li>
-                                        <router-link :to="{ path: '/user_edit' + '/' + loginId }">アカウント設定</router-link>
+                                        <router-link :to="{ path: '/user_edit' + '/' + loginId }" v-if="loginId">アカウント設定</router-link>
                                     </li>
                                     <li><a href="javascript:void(0)" @click="logout()">ログアウト</a></li>
                                 </ul>
@@ -49,7 +49,7 @@
                 <article id="ContentsBody" class="contents-body bca-main__body">
 
                     <div class="bca-main__header">
-                        <h1 class="bca-main__header-title">{{ pageTitle }}</h1>
+                        <h1 class="bca-main__header-title" v-if="pageTitle">{{ pageTitle }}</h1>
                         <div class="bca-main__header-actions" v-if="addLink">
                             <router-link title="新規追加" class="bca-btn" data-bca-btn-type="add" data-bca-btn-size="sm" :to="{ path: addLink }">
                                 新規追加
